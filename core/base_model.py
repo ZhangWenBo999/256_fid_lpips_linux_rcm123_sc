@@ -68,7 +68,8 @@ class BaseModel():
                 os.makedirs(last_path, exist_ok=True)
                 self.save_everything()
 
-            if self.epoch % self.opt['train']['val_epoch'] == 0:
+            # if self.epoch % self.opt['train']['val_epoch'] == 0:
+            if self.epoch > self.opt['train']['val_epoch']:
                 # self.logger.info("\n\n\n------------------------------Validation Start------------------------------")
                 if self.val_loader is None:
                     self.logger.warning('Validation stop where dataloader is None, Skip it.')
